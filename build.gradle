@@ -1,0 +1,33 @@
+buildscript {
+	repositories { mavenCentral() }
+	dependencies { classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.4.RELEASE") }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'spring-boot'
+
+group = 'org.test'
+version = '0.0.1-SNAPSHOT'
+
+description = 'spring-angular'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version:'1.2.2.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version:'1.2.2.RELEASE'
+	//compile("org.springframework.boot:spring-boot-starter-actuator")
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.2.2.RELEASE') {
+exclude(module: 'commons-logging')
+    }
+    testCompile group: 'org.webjars', name: 'angularjs', version:'1.3.8'
+    testCompile group: 'org.webjars', name: 'jasmine', version:'2.0.0'
+}
